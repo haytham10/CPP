@@ -17,37 +17,40 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-class phonebook
+using namespace std;
+
+class Phonebook
 {
 	private:
-		class contact
+		class Contact
 		{
 			public:
-				char *first_name;
-				char *last_name;
-				char *nickname;
-				char *number;
-				char *darkest_secret;
+				string	f_name;
+				string	l_name;
+				string	nickname;
+				string	number;
+				string	darkest_secret;
 		};
 	public:
-		int		i;
-		contact	contacts[7];
-		void	ft_add(int i)
+		int		n_contacts;
+		void	ft_add(int n_contacts)
 		{
-			std::cout << "First name: ";
-			std::cin >> contacts[i].first_name;
-			std::cout << "Last name: ";
-			std::cin >> contacts[i].last_name;
-			std::cout << "Nickname: ";
-			std::cin >> contacts[i].nickname;
-			std::cout << "Phone number: ";
-			std::cin >> contacts[i].number;
-			std::cout << "Darkest secret: ";
-			std::cin >> contacts[i].darkest_secret;
+			Contact cnt[n_contacts];
+
+			cout << "First name: " ;
+			cin >> cnt[n_contacts].f_name;
+			cout << "Last name: " ;
+			cin >> cnt[n_contacts].l_name;
+			cout << "Nickname: " ;
+			cin >> cnt[n_contacts].nickname;
+			cout << "Phone number: " ;
+			cin >> cnt[n_contacts].number;
+			cout << "Darkest secret: " ;
+			cin >> cnt[n_contacts].darkest_secret;
 		}
 		void	ft_search()
 		{
-			std::cout << "SEARCH" << std::endl;
+			cout << "SEARCH" << endl;
 		}
 };
 
