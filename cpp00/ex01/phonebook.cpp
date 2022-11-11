@@ -15,14 +15,15 @@
 int	main()
 {
 	Phonebook	phonebook;
-	string		input;
+	std::string	input;
+	int			i;
 
-	cout << "Welcome to the phonebook" << endl;
-	cout << "Please enter a command: ";
-	phonebook.n_contacts = 0;
+	std::cout << "Welcome to the phonebook" << std::endl;
+	std::cout << "Please enter a command: " << std::endl;
+	i = 0;
 	while (1)
 	{
-		cin >> input;
+		std::cin >> input;
 		if (input == "")
 			continue ;
 		else
@@ -31,16 +32,16 @@ int	main()
 				return (0);
 			else if (input == "ADD")
 			{
-				if (phonebook.n_contacts == 7)
-					phonebook.n_contacts = 0;
-				phonebook.ft_add(phonebook.n_contacts++);
+				if (i == 7)
+					i = 0;
+				phonebook.ft_add(i++);
 			}
 			else if (input == "SEARCH")
-				phonebook.ft_search();
+				phonebook.ft_search(i);
 			else
-				cout << "Invalid command" << endl;
+				std::cout << "Invalid command" << std::endl;
 		}
-		cout << "Please enter a command: ";
+		std::cout << "Please enter a command: ";
 	}
 	return (0);
 }

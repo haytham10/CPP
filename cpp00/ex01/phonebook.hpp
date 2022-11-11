@@ -17,40 +17,60 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-using namespace std;
-
 class Phonebook
 {
 	private:
 		class Contact
 		{
 			public:
-				string	f_name;
-				string	l_name;
-				string	nickname;
-				string	number;
-				string	darkest_secret;
+				std::string	f_name;
+				std::string	l_name;
+				std::string	nickname;
+				std::string	number;
+				std::string	darkest_secret;
 		};
 	public:
-		int		n_contacts;
-		void	ft_add(int n_contacts)
+		void	ft_add(int id)
 		{
-			Contact cnt[n_contacts];
+			Contact cnt[id];
 
-			cout << "First name: " ;
-			cin >> cnt[n_contacts].f_name;
-			cout << "Last name: " ;
-			cin >> cnt[n_contacts].l_name;
-			cout << "Nickname: " ;
-			cin >> cnt[n_contacts].nickname;
-			cout << "Phone number: " ;
-			cin >> cnt[n_contacts].number;
-			cout << "Darkest secret: " ;
-			cin >> cnt[n_contacts].darkest_secret;
+			std::cout << "First name: ";
+			std::cin >> cnt[id].f_name;
+			std::cout << "Last name: ";
+			std::cin >> cnt[id].l_name;
+			std::cout << "Nickname: ";
+			std::cin >> cnt[id].nickname;
+			std::cout << "Phone number: ";
+			std::cin >> cnt[id].number;
+			std::cout << "Darkest secret: ";
+			std::cin >> cnt[id].darkest_secret;
+			std::cout << "Contact added successfully";
 		}
-		void	ft_search()
+		void	ft_search(int id)
 		{
-			cout << "SEARCH" << endl;
+			Contact	cnt[id];
+			
+			std::cout << "Index     |First Name|Last Name |Nickname  " << std::endl;
+			std::cout << "----------|----------|----------|----------" << std::endl;
+			for (int i = 1; i < id; i++)
+			{
+				std::cout << std::setw(10) << i << "|";
+				std::cout << std::setw(10) << cnt[id].f_name << "|";
+				std::cout << std::setw(10) << cnt[id].l_name << "|";
+				std::cout << std::setw(10) << cnt[id].nickname << std::endl;
+			}
+			std::cout << "Please enter the index of the contact you want to see: ";
+			std::cin >> id;
+			if (id > 7 || id < 0 || isdigit(id) == 0)
+				std::cout << "Invalid index" << std::endl;
+			else
+			{
+				std::cout << "First name: " << cnt[id].f_name << std::endl;
+				std::cout << "Last name: " << cnt[id].l_name << std::endl;
+				std::cout << "Nickname: " << cnt[id].nickname << std::endl;
+				std::cout << "Phone number: " << cnt[id].number << std::endl;
+				std::cout << "Darkest secret: " << cnt[id].darkest_secret << std::endl;
+			}
 		}
 };
 
