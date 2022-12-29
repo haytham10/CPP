@@ -2,7 +2,7 @@
 ## C++ Module 00:
 ### *EX00*:
 This one is easy I don't need to put walkthrough about it.
-A simple program to transrom lowercase strings into upper case.
+A simple program to transform lowercase strings into upper case.
 ### *EX01*:
 #### Phonebook:
 This program is a phonebook software that allows the user to add, search, and display phonebook contacts. The program is implemented using two C++ classes: **`Contact`** and **`PhoneBook`**.
