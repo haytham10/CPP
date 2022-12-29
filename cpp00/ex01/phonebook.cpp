@@ -40,13 +40,11 @@ Contact PhoneBook::Search(int index) const {
 }
 
 // Truncate a string to a certain length, replacing the last character with a dot (.) if necessary.
-std::string Truncate(const std::string& str, int length) {
-  if (str.length() <= length) {
-    return str;
+std::string Truncate(const std::string& str, size_t length) {
+  if (str.size() > length) {
+    return str.substr(0, length - 1) + ".";
   }
-  std::string truncated = str.substr(0, length - 1);
-  truncated += ".";
-  return truncated;
+  return str;
 }
 
 // Display the phonebook
