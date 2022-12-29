@@ -10,10 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <iomanip>
 #include "phonebook.hpp"
 
 // Add a contact to the phonebook

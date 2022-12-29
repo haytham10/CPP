@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+#include <algorithm>
 #include <iomanip>
 
 #ifndef PHONEBOOK_HPP
