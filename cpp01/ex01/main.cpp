@@ -17,7 +17,7 @@
 int main()
 {
   // Create a horde of 5 zombies with the name "Zombie 1"
-  Zombie* horde = zombieHorde(5, "Zombie 1");
+  Zombie *horde = zombieHorde(5, "Zombie 1");
   for (int i = 0; i < 5; i++) {
     horde[i].announce();  // Call announce() on each zombie in the horde
   }
