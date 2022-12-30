@@ -27,3 +27,44 @@ The **`PhoneBook`** class has a constructor that initializes the **`num_contacts
 - *`Display() const`*: displays the contacts in the phonebook as a list of 4 columns: index, first name, last name, and nickname.
 
 The main function of the program prompts the user to enter one of three commands: ADD, SEARCH, or EXIT. If the user enters the ADD command, the program prompts the user to input the information of a new contact and adds the contact to the phonebook. If the user enters the SEARCH command, the program displays the saved contacts as a list and prompts the user to input the index of the contact to display. If the user enters the EXIT command, the program quits. Any other input is discarded. The program waits for another command after each command is correctly executed, and stops when the user inputs EXIT.
+
+## C++ Module 01:
+### *EX00*:
+Here is an example of how you can implement the Zombie class in C++:
+```
+#include <iostream>
+#include <string>
+
+class Zombie {
+private:
+    std::string name;
+
+public:
+    Zombie(std::string name) : name(name) {}
+
+    void announce() {
+        std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+    }
+
+    ~Zombie() {
+        std::cout << name << " has been destroyed." << std::endl;
+    }
+};
+
+Zombie* newZombie(std::string name) {
+    return new Zombie(name);
+}
+
+void randomChump(std::string name) {
+    Zombie zombie(name);
+    zombie.announce();
+}
+```
+The **`newZombie`** function creates a new zombie on the heap and returns a pointer to it, while the **`randomChump`** function creates a zombie on the stack and announces it.
+
+As for determining when it's better to allocate the zombies on the stack or heap, here are some considerations:
+
+- If the lifetime of the zombie is limited to the scope in which it was created, it is generally better to allocate it on the stack. This is because stack allocation is faster and more efficient than heap allocation, and the zombie will be automatically destroyed when the function exits.
+- If the zombie needs to live beyond the scope in which it was created, it is generally better to allocate it on the heap. In this case, you will need to remember to delete the zombie when you are done with it to avoid memory leaks.
+
+It's also worth noting that in C++, it's generally recommended to use smart pointers (such as *`std::unique_ptr`* or *`std::shared_ptr`*) to manage the lifetime of objects allocated on the heap, as they make it easier to ensure that the objects are properly deleted when they are no longer needed
