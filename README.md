@@ -67,4 +67,48 @@ As for determining when it's better to allocate the zombies on the stack or heap
 - If the lifetime of the zombie is limited to the scope in which it was created, it is generally better to allocate it on the stack. This is because stack allocation is faster and more efficient than heap allocation, and the zombie will be automatically destroyed when the function exits.
 - If the zombie needs to live beyond the scope in which it was created, it is generally better to allocate it on the heap. In this case, you will need to remember to delete the zombie when you are done with it to avoid memory leaks.
 
-It's also worth noting that in C++, it's generally recommended to use smart pointers (such as *`std::unique_ptr`* or *`std::shared_ptr`*) to manage the lifetime of objects allocated on the heap, as they make it easier to ensure that the objects are properly deleted when they are no longer needed
+It's also worth noting that in C++, it's generally recommended to use smart pointers (such as *`std::unique_ptr`* or *`std::shared_ptr`*) to manage the lifetime of objects allocated on the heap, as they make it easier to ensure that the objects are properly deleted when they are no longer needed.
+
+### *EX01*:
+To implement the **`zombieHorde()`** function, you will need to do the following:
+
+- Allocate an array of **`N`** **`Zombie`** objects using the *`new`* operator.
+- Initialize each **`Zombie`** object in the array by calling its constructor and passing it the **`name`** parameter.
+- Return a pointer to the first **`Zombie`** object in the array.
+
+Here is an example of what the **`zombieHorde()`** function might look like:
+```
+Zombie *zombieHorde(int N, std::string name)
+{
+  Zombie *horde = new Zombie[N];  // Allocate an array of N Zombies
+  
+  for (int i = 0; i < N; i++)
+    horde[i] = Zombie(name);  // Initialize each Zombie in the array
+    
+  return horde;  // Return a pointer to the first Zombie in the array
+}
+```
+To test the **`zombieHorde()`** function, you can create a few test cases that create different hordes of zombies with different names and then call the **`announce()`** method on each zombie in the horde. Be sure to delete the zombie horde when you are done with it to avoid memory leaks.
+
+Here is an example of how you might test the **`zombieHorde()`** function:
+```
+int main()
+{
+  // Create a horde of 5 zombies with the name "Zombie 1"
+  Zombie* horde = zombieHorde(5, "Zombie 1");
+  for (int i = 0; i < 5; i++) {
+    horde[i].announce();  // Call announce() on each zombie in the horde
+  }
+  delete[] horde;  // Delete the horde to avoid memory leaks
+
+  // Create a horde of 3 zombies with the name "Zombie 2"
+  horde = zombieHorde(3, "Zombie 2");
+  for (int i = 0; i < 3; i++) {
+    horde[i].announce();  // Call announce() on each zombie in the horde
+  }
+  delete[] horde;  // Delete the horde to avoid memory leaks
+
+  return 0;
+}
+```
+Don't forget to include the necessary headers and implement the **`Zombie`** and **`ZombieHorde`** classes as needed. You may also need to write a **`Makefile`** to build and run your program.
