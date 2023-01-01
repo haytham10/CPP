@@ -128,3 +128,10 @@ The exercise involves printing the memory addresses of the string variable, the 
 The goal of this exercise is to practice implementing classes in C++. Specifically, you are asked to implement a **`Weapon`** class and two classes **`HumanA`** and **`HumanB`** which have a **`Weapon`** and a **`name`**. You are also asked to implement a member function **`attack()`** in these classes which displays a message with the name of the human and their weapon type.
 
 In this exercise, you will need to think about the relationships between these classes and how they interact with each other. You will also need to consider the differences between **`HumanA`** and **`HumanB`** and how they are implemented differently to reflect these differences. This exercise is designed to help you gain a better understanding of class design and implementation in C++.
+
+### *EX04*:
+The goal of this exercise was to create a C++ program that takes three parameters: a filename, and two strings, s1 and s2. The program was required to open the file with the given filename and create a new file with the same name and a ".replace" extension, where every occurrence of s1 in the original file was replaced with s2. The program was not allowed to use C file manipulation functions, but was allowed to use all member functions of the **`std::string`** class except for **`replace`**.
+
+To solve this exercise, we created a main file and a separate file called "createFile". The main file was responsible for parsing the input arguments and calling the **`createFile`** function to create the output file. The **`createFile`** function opened the input and output files, read the input file line by line, and wrote the modified lines to the output file. The lines were modified by finding all occurrences of s1 and replacing them with s2 using the **`find`** and **`substr`** functions from the **`std::string`** class.
+
+We also added error handling to the program to handle cases where the incorrect number of arguments were provided or where the input or output files could not be opened.
