@@ -112,3 +112,19 @@ int main()
 }
 ```
 Don't forget to include the necessary headers and implement the **`Zombie`** and **`ZombieHorde`** classes as needed. You may also need to write a **`Makefile`** to build and run your program.
+
+### *EX02*:
+The goal of this exercise is to understand the difference between a string variable, a pointer to a string, and a reference to a string.
+
+A string variable is a variable that stores a string value. The value of the string variable can be accessed and modified directly.
+
+A pointer to a string is a variable that stores the memory address of a string. The value of the string pointed to by the pointer can be accessed and modified by dereferencing the pointer.
+
+A reference to a string is an alias for the string. It is another name for the same string. The value of the string referred to by the reference can be accessed and modified directly, just like a normal string variable.
+
+The exercise involves printing the memory addresses of the string variable, the pointer, and the reference, as well as the values of the string variable, the string pointed to by the pointer, and the string referred to by the reference. This helps to demonstrate how these three different ways of storing and accessing a string value differ from each other.
+
+### *EX03*:
+The goal of this exercise is to practice implementing classes in C++. Specifically, you are asked to implement a **`Weapon`** class and two classes **`HumanA`** and **`HumanB`** which have a **`Weapon`** and a **`name`**. You are also asked to implement a member function **`attack()`** in these classes which displays a message with the name of the human and their weapon type.
+
+In this exercise, you will need to think about the relationships between these classes and how they interact with each other. You will also need to consider the differences between **`HumanA`** and **`HumanB`** and how they are implemented differently to reflect these differences. This exercise is designed to help you gain a better understanding of class design and implementation in C++.
