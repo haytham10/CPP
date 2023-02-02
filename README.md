@@ -138,3 +138,14 @@ We also added error handling to the program to handle cases where the incorrect 
 
 ### *EX05*:
 The goal of this exercise was to use pointers to member functions to implement the **`Harl`** class, which has a public member function called **`complain`** that takes a string parameter indicating the level of complaint and calls the appropriate private member function. The implementation of the **`complain`** function should not use a "forest of if/else if/else" statements, but should instead use a pointer to member function to store a reference to the appropriate member function to be called. The **`Harl`** class should be tested by calling the **`complain`** function with different levels of complaint to ensure that it behaves as expected.
+
+## C++ Module 02:
+### *EX00*:
+The goal of this assignment was to create a class in C++ that represents a fixed-point number with specified private and public members. To achieve this goal, we took the following steps:
+- Created the header file **`Fixed.hpp`** containing the class definition for **`Fixed`** with private members **`value`** and **`fractionalBits`** and public members including constructors, destructor, assignment operator, and member functions **`getRawBits`** and **`setRawBits`**.
+- Implemented the class in the **`Fixed.cpp`** file with the logic for each member function, including constructors that initialize the fixed-point value to 0, copy constructor, copy assignment operator, destructor, and getter and setter functions for the raw value.
+- In the **`main.cpp`** file, created objects of the **`Fixed`** class and used the various member functions to demonstrate the output of the code.
+After compiling and executing the code, we obtained the desired output of a sequence of messages indicating the function calls and the values of the fixed-point objects.
+
+
+
