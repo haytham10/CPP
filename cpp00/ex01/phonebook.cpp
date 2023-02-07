@@ -89,7 +89,12 @@ int main() {
     std::string command;
     std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
     std::cin >> command;
-
+	// If the user presses Ctrl + D, exit the program
+	if (std::cin.eof())
+	{
+		std::cout << std::endl;
+		return 0;
+	}
     // Convert the command to uppercase
     std::transform(command.begin(), command.end(), command.begin(), ::toupper);
 
@@ -120,21 +125,25 @@ int main() {
     	std::cout << "Enter the index of the contact to display: ";
     	std::string index_input;
     	std::cin >> index_input;
+		if (!(std::cin >> index_input))
+		{
+			std::cout << std::endl;
+			return 0;
+		}
     	if (!std::all_of(index_input.begin(), index_input.end(), ::isdigit)) 
 		{
     		std::cout << "Invalid index" << std::endl;
     		continue;
     	}
-      index = stoi(index_input); // Convert the string to an integer
-      if (index < 0 || index >= 7)
-	  {
-        std::cout << "Index out of range" << std::endl;
-        continue;
-      }
-      Contact contact = phonebook.Search(index);
-      contact.Display();
-}
-
+		index = stoi(index_input); // Convert the string to an integer
+		if (index < 0 || index >= 7)
+		{
+			std::cout << "Index out of range" << std::endl;
+			continue;
+		}
+		Contact contact = phonebook.Search(index);
+		contact.Display();
+	}
     // If the user enters EXIT, exit the program
     else if (command == "EXIT") {
       // Exit the program
