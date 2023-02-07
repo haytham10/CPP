@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 16:17:03 by hmokhtar          #+#    #+#             */
-/*   Updated: 2022/11/05 18:30:27 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/02/06 04:20:07 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,35 @@ Contact PhoneBook::Search(int index) const {
 
 // Truncate a string to a certain length, replacing the last character with a dot (.) if necessary.
 std::string Truncate(const std::string& str, size_t length) {
-  if (str.size() > length) {
+  if (str.size() > length) 
     return str.substr(0, length - 1) + ".";
-  }
   return str;
 }
 
 // Display the phonebook
 void PhoneBook::Display() const {
   // Print the header
-  std::cout << "|   index|first name| last name|nickname  |" << std::endl;
+  std::cout << "|-------------------------------------------|" << std::endl;
+  std::cout << "| index | first name | last name | nickname |" << std::endl;
   // Print a line separator
-  std::cout << "|--------|----------|----------|----------|" << std::endl;
+  std::cout << "|-------|------------|-----------|----------|" << std::endl;
 
   // Iterate over the contacts
-  for (int i = 0; i < 8; ++i) {
+  for (int i = 0; i < 8; ++i) 
+  {
     // Print the index, right-aligned and padded with spaces
-    std::cout << "|" << std::right << std::setw(8) << i << "|";
+    std::cout << "|" << std::right << std::setw(6) << i << " |";
     // Print the first name, right-aligned and padded with spaces
-	std::cout << std::right << std::setw(10) << Truncate(contacts[i].FirstName(), 10) << "|";
+    std::cout << std::right << std::setw(12) << Truncate(contacts[i].FirstName(), 12) << "|";
     // Print the last name, right-aligned and padded with spaces
-    std::cout << std::right << std::setw(10) << Truncate(contacts[i].LastName(), 10) << "|";
+    std::cout << std::right << std::setw(11) << Truncate(contacts[i].LastName(), 11) << "|";
     // Print the nickname, right-aligned and padded with spaces
-    std::cout << std::right << std::setw(10) << Truncate(contacts[i].Nickname(), 10) << "|";
-    std::cout << std::endl;
+    std::cout << std::right << std::setw(10) << Truncate(contacts[i].Nickname(), 10) << "|" << std::endl;
   }
+  // Print a line separator
+  std::cout << "|_______|____________|___________|__________|" << std::endl;
 }
+
 
 // Display a contact
 void Contact::Display() const {
@@ -110,18 +113,28 @@ int main() {
       phonebook.Add(contact);
     }
     // If the user enters SEARCH, display the saved contacts and prompt for the index of the contact to display
-    else if (command == "SEARCH") {
-      // Display the phonebook
-      phonebook.Display();
-      // Prompt for the index of the contact to display
-      int index;
-      std::cout << "Enter the index of the contact to display: ";
-      std::cin >> index;
-      // Search for the contact with the given index
+	else if (command == "SEARCH") 
+	{
+ 		phonebook.Display();
+		int index;
+    	std::cout << "Enter the index of the contact to display: ";
+    	std::string index_input;
+    	std::cin >> index_input;
+    	if (!std::all_of(index_input.begin(), index_input.end(), ::isdigit)) 
+		{
+    		std::cout << "Invalid index" << std::endl;
+    		continue;
+    	}
+      index = stoi(index_input); // Convert the string to an integer
+      if (index < 0 || index >= 7)
+	  {
+        std::cout << "Index out of range" << std::endl;
+        continue;
+      }
       Contact contact = phonebook.Search(index);
-      // Display the contact
       contact.Display();
-    }
+}
+
     // If the user enters EXIT, exit the program
     else if (command == "EXIT") {
       // Exit the program
