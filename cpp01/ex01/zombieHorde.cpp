@@ -14,10 +14,12 @@
 
 Zombie *zombieHorde(int N, std::string name)
 {
-  Zombie *horde = new Zombie[N];  // Allocate an array of N Zombies
+	Zombie *horde = new Zombie[N];  // Allocate an array of N Zombies
 
-  for (int i = 0; i < N; i++)
-    horde[i] = Zombie(name);  // Initialize each Zombie in the array
+	if (N <= 0)
+		return NULL;  // Return NULL if N is 0 or negative
+	for (int i = 0; i < N; i++)
+		horde[i] = Zombie(name);  // Initialize each Zombie in the array
 
-  return horde;  // Return a pointer to the first Zombie in the array
+	return horde;  // Return a pointer to the first Zombie in the array
 }

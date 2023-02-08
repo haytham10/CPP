@@ -38,8 +38,8 @@ bool createFile(const std::string& filename, const std::string& s1, const std::s
         while (pos != std::string::npos)
         {
             // Replace s1 with s2 in the line
-            line.replace(pos, s1.length(), s2);
-
+			line.erase(pos, s1.length());
+			line.insert(pos, s2);
             // Find the next occurrence of s1 in the line
             pos = line.find(s1);
         }

@@ -21,7 +21,11 @@ int main(int argc, char* argv[])
         std::cerr << "Error: Incorrect number of arguments. Expected 3." << std::endl;
         return 1;
     }
-
+	if (argv[2][0] == '\0' || argv[3][0] == '\0')
+	{
+		std::cerr << "Error: Empty string." << std::endl;
+		return 1;
+	}
     // Get the input arguments
     std::string filename = argv[1];
     std::string s1 = argv[2];
