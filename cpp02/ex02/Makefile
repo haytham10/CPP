@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/02 10:24:56 by hmokhtar          #+#    #+#              #
-#    Updated: 2023/02/02 10:24:56 by hmokhtar         ###   ########.fr        #
+#    Created: 2023/02/09 17:38:34 by hmokhtar          #+#    #+#              #
+#    Updated: 2023/02/09 17:38:34 by hmokhtar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = OCF2
+NAME = OCF3
 
 SRCS = main.cpp Fixed.cpp
 

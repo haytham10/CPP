@@ -41,7 +41,7 @@ bool createFile(const std::string& filename, const std::string& s1, const std::s
 			line.erase(pos, s1.length());
 			line.insert(pos, s2);
             // Find the next occurrence of s1 in the line
-            pos = line.find(s1);
+            pos = line.find(s1, pos + s2.length());
         }
 
         // Write the modified line to the output file

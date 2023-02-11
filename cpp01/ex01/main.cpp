@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include "Zombie.hpp"
-#include "ZombieHorde.hpp"
+#include "zombieHorde.hpp"
 
 int main()
 {
