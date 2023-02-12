@@ -6,7 +6,7 @@
 #    By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 10:24:56 by hmokhtar          #+#    #+#              #
-#    Updated: 2023/02/02 10:24:56 by hmokhtar         ###   ########.fr        #
+#    Updated: 2023/02/12 23:48:46 by hmokhtar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
