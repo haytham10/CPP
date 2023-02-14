@@ -1,3 +1,5 @@
 .vscode/
 *.hpp.gch
 a.exe
+a.out
+*.o
