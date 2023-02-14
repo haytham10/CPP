@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:50:15 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/02/11 16:50:15 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/02/14 15:22:15 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,26 @@
 
 int main()
 {
-	ClapTrap morgana("Morgana");
-    ClapTrap timo("Timo");
-    ClapTrap akali("Akali");
-    ScavTrap nasus("Nasus");
+	ScavTrap Vi("Vi");
+	ScavTrap Jinx("Jinx");
+	
+	Vi.attack("Jinx");
+	Jinx.takeDamage(20);
+	Jinx.attack("Vi");
+	
+	// ScavTrap Vi("Vi");
+	// ScavTrap Zed("Zed");
+	// ScavTrap Lux("Lux");
+	// ScavTrap Jinx("Jinx");
 
-    morgana.attack("Samira");
-    morgana.attack("Zed");
-    morgana.attack("Jinx");
-    morgana.takeDamage(5);
-    timo.takeDamage(9);
-    timo.takeDamage(10);
-    akali.beRepaired(10);
-    akali.takeDamage(19);
-    nasus.attack("Lux");
-    nasus.takeDamage(99);
-    nasus.beRepaired(50);
-    nasus.guardGate();
+    // Vi.attack("Lux");
+    // Vi.attack("Zed");
+    // Vi.attack("Jinx");
+    // Vi.takeDamage(50);
+	// Zed.takeDamage(20);
+	// Jinx.takeDamage(55);
+	// Lux.takeDamage(150);
+	// Vi.beRepaired(20);
+    // Vi.guardGate();
 	return (0);
 }
