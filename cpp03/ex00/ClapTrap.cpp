@@ -46,7 +46,13 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " is already dead" << std::endl;
 		return ;
 	}
+	if (_energyPoints < 1)
+	{
+		std::cout << "ClapTrap " << _name << " is out of energy" << std::endl;
+		return ;
+	}
 	_hitPoints += amount;
+	_energyPoints--;
 	std::cout << "ClapTrap " << _name << " is repaired by " << amount << " points!" << std::endl;
 }
 

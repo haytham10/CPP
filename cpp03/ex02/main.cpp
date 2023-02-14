@@ -15,7 +15,9 @@
 int main()
 {
 	FragTrap frag("frag");
+
 	frag.attack("target");
 	frag.highFivesGuys();
+	
 	return (0);
 }

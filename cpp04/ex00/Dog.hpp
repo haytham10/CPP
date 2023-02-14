@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:50:15 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/02/14 15:22:15 by hmokhtar         ###   ########.fr       */
+/*   Created: 2023/02/13 01:23:11 by hmokhtar          #+#    #+#             */
+/*   Updated: 2023/02/13 01:23:11 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef DOG_HPP
+# define DOG_HPP
 
-int main()
+# include "Animal.hpp"
+
+class Dog : public Animal
 {
-	ScavTrap Vi("Vi");
-	ScavTrap Jinx("Jinx");
-	
-	Vi.attack("Lux");
-	Vi.takeDamage(20);
-	Vi.beRepaired(20);
-    Vi.guardGate();
-	Jinx.attack("Twitch");
-	Jinx.takeDamage(15);
-	Jinx.beRepaired(30);
-	Jinx.guardGate();
+	public:
+		Dog();
+		Dog(const Dog &src);
+		Dog &operator=(const Dog &src);
+		~Dog();
+		void makeSound() const;
+};
 
-	return (0);
-}
+#endif

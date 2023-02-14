@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:50:15 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/02/14 15:22:15 by hmokhtar         ###   ########.fr       */
+/*   Created: 2023/02/13 01:23:51 by hmokhtar          #+#    #+#             */
+/*   Updated: 2023/02/13 01:23:51 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int main()
+# include "Animal.hpp"
+
+class Cat : public Animal
 {
-	ScavTrap Vi("Vi");
-	ScavTrap Jinx("Jinx");
-	
-	Vi.attack("Lux");
-	Vi.takeDamage(20);
-	Vi.beRepaired(20);
-    Vi.guardGate();
-	Jinx.attack("Twitch");
-	Jinx.takeDamage(15);
-	Jinx.beRepaired(30);
-	Jinx.guardGate();
+	public:
+		Cat();
+		Cat(const Cat &src);
+		Cat &operator=(const Cat &src);
+		~Cat();
+		void makeSound() const;
+};
 
-	return (0);
-}
+#endif
