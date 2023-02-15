@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 01:23:58 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/02/13 01:23:58 by hmokhtar         ###   ########.fr       */
+/*   Created: 2023/02/15 15:48:09 by hmokhtar          #+#    #+#             */
+/*   Updated: 2023/02/15 15:48:09 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() : Animal() {
-	type = "Cat";
-	std::cout << "Cat constructor called" << std::endl;
+WrongCat::WrongCat() : WrongAnimal() 
+{
+	type = "WrongCat";
+	std::cout << "WrongCat constructor called" << std::endl;
 }
 
-Cat::~Cat() {
-	std::cout << "Cat destructor called" << std::endl;
-}
-
-Cat &Cat::operator=(const Cat &src) {
+WrongCat &WrongCat::operator=(const WrongCat &src) 
+{
 	this->type = src.type;
 	return (*this);
 }
 
-Cat::Cat(const Cat &src) : Animal(src){
+WrongCat::WrongCat(const WrongCat &src) : WrongAnimal(src) 
+{
 	*this = src;
 }
 
-void Cat::makeSound() const {
-	std::cout << "Meow meow!" << std::endl;
+void WrongCat::makeSound() const 
+{
+	std::cout << "Wrong sound of a cat" << std::endl;
+}
+
+WrongCat::~WrongCat() 
+{
+	std::cout << "WrongCat destructor called" << std::endl;
 }

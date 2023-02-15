@@ -10,56 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-
-class Dog : public Animal {
-public:
-  Dog() {
-    type = "Dog";
-  }
-  void makeSound() const override {
-    std::cout << "Woof woof" << std::endl;
-  }
-};
-
-class Cat : public Animal {
-public:
-  Cat() {
-    type = "Cat";
-  }
-  void makeSound() const override {
-    std::cout << "Meow meow" << std::endl;
-  }
-};
-
-class WrongAnimal : public Animal {
-};
-
-class WrongCat : public WrongAnimal {
-};
+#include "Animal.hpp"
+#include "Dog.hpp"
+#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main() {
-  const Animal* meta = new Animal();
-  const Animal* j = new Dog();
-  const Animal* i = new Cat();
-  std::cout << j->getType() << std::endl;
-  std::cout << i->getType() << std::endl;
-  i->makeSound();
-  j->makeSound();
-  meta->makeSound();
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    const WrongAnimal* w = new WrongCat();
+    
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    std::cout << w->getType() << " " << std::endl;
 
-  const WrongAnimal* wrongMeta = new WrongAnimal();
-  const WrongAnimal* wrongCat = new WrongCat();
-  std::cout << wrongCat->getType() << std::endl;
-  wrongCat->makeSound();
-  wrongMeta->makeSound();
+    i->makeSound(); // should output "Meow!"
+    j->makeSound(); // should output "Bark!"
+    meta->makeSound(); // should output "The sound of an animal"
+    w->makeSound(); // should output "The sound of a wrong cat"
 
-  delete meta;
-  delete j;
-  delete i;
-  delete wrongMeta;
-  delete wrongCat;
-
-  return 0;
+    delete meta;
+    delete j;
+    delete i;
+    delete w;
+    
+    return 0;
 }
