@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME = World_on_Fire
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
-INC = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+INC = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
