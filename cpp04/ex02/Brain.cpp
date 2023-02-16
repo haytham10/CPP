@@ -17,6 +17,7 @@ Brain::Brain()
 {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = " ";
+	std::cout << "Brain constructor called" << std::endl;
 }
 
 Brain::Brain(const Brain &src)
@@ -26,8 +27,11 @@ Brain::Brain(const Brain &src)
 
 Brain &Brain::operator=(const Brain &src)
 {
-	for (int i = 0; i < 100; i++)
-		this->ideas[i] = src.ideas[i];
+	if (this != &src)
+	{
+		for (int i = 0; i < 100; i++)
+			this->ideas[i] = src.ideas[i];
+	}
 	return (*this);
 }
 

@@ -14,6 +14,7 @@
 
 Cat::Cat() : Animal() {
 	type = "Cat";
+	this->_brain = new Brain();
 	std::cout << "Cat constructor called" << std::endl;
 }
 
@@ -21,13 +22,19 @@ Cat::~Cat() {
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-Cat &Cat::operator=(const Cat &src) {
-	this->type = src.type;
-	return (*this);
+Cat &Cat::operator=(const Cat &src) 
+{
+	if (this != &src)
+        this->type = src.type;
+    delete this->_brain;
+    this->_brain = new Brain();
+    *this->_brain = *src._brain;
+    return (*this);
 }
 
 Cat::Cat(const Cat &src) : Animal(src){
-	*this = src;
+	this->_brain = new Brain();
+	this->type = src.type;
 }
 
 void Cat::makeSound() const {
