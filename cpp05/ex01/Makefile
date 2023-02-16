@@ -10,11 +10,11 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Maggots
+NAME = Form
 
-SRCS = main.cpp 
+SRCS = main.cpp Bureaucrat.cpp Form.cpp
 
-INC = 
+INC = Bureaucrat.hpp Form.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
