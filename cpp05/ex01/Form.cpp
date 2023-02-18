@@ -12,6 +12,8 @@
 
 #include "Form.hpp"
 
+Form::Form() : m_name("default"), m_isSigned(false), m_signGrade(1), m_execGrade(1) {}
+
 Form::Form(const std::string& name, const int signGrade, const int executeGrade)
     : m_name(name), m_isSigned(false), m_signGrade(signGrade), m_execGrade(executeGrade) 
 {
@@ -52,7 +54,8 @@ int Form::getExecGrade() const {
     return m_execGrade;
 }
 
-void Form::beSigned(const Bureaucrat& bureaucrat) {
+void Form::beSigned(const Bureaucrat& bureaucrat) 
+{
     if (bureaucrat.getGrade() > m_signGrade) {
         throw GradeTooLowException();
     }

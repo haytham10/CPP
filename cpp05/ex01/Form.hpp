@@ -43,6 +43,8 @@ class Form
 			}
 		};
 
+		Form();
+
 		Form(const std::string& name, const int signGrade, const int execGrade);
 
 		Form(const Form& src);
