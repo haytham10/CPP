@@ -5,16 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/21 15:05:56 by hmokhtar          #+#    #+#              #
-#    Updated: 2023/02/21 15:05:56 by hmokhtar         ###   ########.fr        #
+#    Created: 2023/02/22 15:40:30 by hmokhtar          #+#    #+#              #
+#    Updated: 2023/02/22 15:40:30 by hmokhtar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Convert
+NAME = Seralizer
 
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp Serialization.cpp
 
-INC = ScalarConverter.hpp
+INC = Serialization.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 
