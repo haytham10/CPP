@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:42:41 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/02/23 17:42:41 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/02/23 20:54:03 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# include <string>
+# include <exception>
 
 template <typename T>
 
@@ -28,11 +30,7 @@ class Array
 		Array() : data(NULL), size(0) {}
 
 		// Constructor with size
-		Array(unsigned int n) : data(new T[n]), size(n)
-		{
-			for (unsigned int i = 0; i < n; i++)
-				data[i] = T();
-		}
+		Array(unsigned int n) : data(new T[n]), size(n){}
 
 		// Copy constructor
 		Array(const Array& other) : data(new T[other.size]), size(other.size)
@@ -44,16 +42,15 @@ class Array
 		// Assignment operator
 		Array& operator=(const Array& other)
 		{
-			if (this != &other)
-			{
-				T* temp = new T[other.size];
-				for (unsigned int i = 0; i < other.size; i++)
-					temp[i] = other.data[i];
-				delete[] data;
-				size = other.size;
-				data = temp;
-			}
-			return *this;
+			if (this != &other) {
+                    delete[] data;
+                data = new T[other.size];
+                size = other.size;
+                for (unsigned int i = 0; i < size; i++) {
+                    data[i] = other.data[i];
+                }
+            }
+            return *this;
 		}
 
 		// Destructor
@@ -62,6 +59,16 @@ class Array
 			delete[] data;
 		}
 
+		class WrongIndexException : public std::exception
+		{
+
+			public:
+                virtual const char* what() const throw()
+                {
+                    return "Wrong index";
+                }
+        };
+		
 		// Subscript operator
 		T& operator[](unsigned int i)
 		{
