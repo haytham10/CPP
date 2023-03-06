@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 10:15:47 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/03/04 10:15:47 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/03/06 13:59:06 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,13 @@ int main()
         std::cout << "Error: " << e.what() << std::endl;
     }
 
-    std::vector<int> vec{1, 2, 3, 4, 5};
+    std::vector<int> vec;
+	vec.push_back(1);
+	vec.push_back(2);
+	vec.push_back(3);
+	vec.push_back(4);
+	vec.push_back(5);
+
     try
     {
         sp.addNumber(vec.begin(), vec.end());

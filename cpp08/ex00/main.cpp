@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 09:50:36 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/03/04 09:50:36 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/03/06 13:54:49 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 
 int main()
 {
-    std::vector<int> v = { 1, 2, 3, 4, 5 };
+    std::vector<int> v;
+	v.push_back(1);
+	v.push_back(2);
+	v.push_back(3);
+	v.push_back(4);
+	v.push_back(5);
 
     try
     {
-        int n = 3;
+        int n = 5;
         int index = easyfind(v, n);
         std::cout << "Found element " << n << " at index " << index << std::endl;
     }
