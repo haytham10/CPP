@@ -27,7 +27,7 @@ Fixed::~Fixed(void){}
 
 Fixed::Fixed(const int _FixedValue)
 {
-    this->_FixedValue = (int)round(_FixedValue * (1 << this->_fractionalBits));
+    this->_FixedValue = (int)round(_FixedValue * (1 << this->_fractionalBits)); // 1 << 8 = 256
 }
 
 Fixed::Fixed(const float _FixedValue)
