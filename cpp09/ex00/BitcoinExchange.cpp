@@ -91,7 +91,7 @@ double check_value(std::string &value, std::string &input)
     }
 
     double val = std::strtod(value.c_str(), NULL); // strtod converts string to double
-    if (val > INT_MAX)
+    if (val > 1000)
     {
         std::cout << "Error: too large a number." << std::endl;
         return (-1);
@@ -110,12 +110,13 @@ void	BitcoinExchange::searchDb(std::string &date, double value)
     std::map<std::string, double>::iterator it = data.upper_bound(date);
     if (it != data.end())
     {
-        double result = value * it->second;
+		--it;
+        float result = value * it->second;
         std::cout << date << " => " << value << " = " << result << std::endl;
     }
     else
     {
-        std::cout << "Error: no data found for date." << date << std::endl;
+        std::cout << "Error: no data found for " << date << std::endl;
     }
 }
 
@@ -131,7 +132,7 @@ int BitcoinExchange::loadInput(std::string &input)
 
     std::string line;
     std::string delimiter = " | ";
-	std::getline(file, line);
+	std::getline(file, line); // skip first line "Date | Value"
     while (std::getline(file, line))
     {
         size_t delimiterPos = line.find(delimiter);
