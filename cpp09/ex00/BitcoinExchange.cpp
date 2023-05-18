@@ -65,8 +65,40 @@ bool check_date(std::string &date, std::string &input)
 		std::cout << "Error: bad input => " << input << std::endl;
 		return (false);
 	}
-	struct tm tm;
-	if (strptime(date.c_str(), "%Y-%m-%d", &tm) == NULL)
+	if (date[4] != '-' || date[7] != '-')
+	{
+		std::cout << "Error: bad input => " << input << std::endl;
+		return (false);
+	}
+	std::string yearString = date.substr(0, 4);
+	std::string monthString = date.substr(5, 2);
+	std::string dayString = date.substr(8, 2);
+
+	int year = std::atoi(yearString.c_str());
+	int month = std::atoi(monthString.c_str());
+	int day = std::atoi(dayString.c_str());
+
+	if (year < 2009 || year > 2023)
+	{
+		std::cout << "Error: bad input => " << input << std::endl;
+		return (false);
+	}
+	if (month < 1 || month > 12)
+	{
+		std::cout << "Error: bad input => " << input << std::endl;
+		return (false);
+	}
+	if (month % 2 == 0 && month != 2 && (day < 1 || day > 30))
+	{
+		std::cout << "Error: bad input => " << input << std::endl;
+		return (false);
+	}
+	if (month % 2 != 0 && (day < 1 || day > 31))
+	{
+		std::cout << "Error: bad input => " << input << std::endl;
+		return (false);
+	}
+	if (month == 2 && ((day < 1 || day > 28) || (year % 4 == 0 && day == 29)))
 	{
 		std::cout << "Error: bad input => " << input << std::endl;
 		return (false);
