@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 06:07:32 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 06:07:32 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/22 08:32:01 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,21 @@ double applyOperator(const std::string& op, double operand1, double operand2)
 double evaluateRPNExpression(const std::string& expression) {
     std::stack<double> operands;
 
-    std::string token;
     std::istringstream iss(expression);
+    std::string token;
 
     while (iss >> token)
 	{
-		if (token.size() == 1 && std::isdigit(token[0])) {
+        if (token.size() == 1 && std::isdigit(token[0]))
+		{
             double operand = std::atof(token.c_str());
             operands.push(operand);
-		}
-        else if (!isOperator(token))
+        }
+		else if (isOperator(token))
 		{
             if (operands.size() < 2)
                 // Invalid expression: insufficient operands
-				return 0.0;
+                return NAN;
 
             double operand2 = operands.top();
             operands.pop();
@@ -57,12 +58,10 @@ double evaluateRPNExpression(const std::string& expression) {
 
             double result = applyOperator(token, operand1, operand2);
             operands.push(result);
-        }
-		else
-		{
-			// Invalid expression: unknown token
-			return NAN;
 		}
+        else
+            // Invalid token
+            return NAN;
     }
 
     if (operands.size() == 1)
