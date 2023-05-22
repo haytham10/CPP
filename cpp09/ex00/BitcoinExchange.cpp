@@ -98,10 +98,18 @@ bool check_date(std::string &date, std::string &input)
 		std::cout << "Error: bad input => " << input << std::endl;
 		return (false);
 	}
-	if (month == 2 && ((day < 1 || day > 28) || (year % 4 == 0 && day == 29)))
+	if (month == 2)
 	{
-		std::cout << "Error: bad input => " << input << std::endl;
-		return (false);
+		if (year % 4 == 0 && (day < 1 || day > 29))
+		{
+			std::cout << "Error: bad input => " << input << std::endl;
+			return (false);
+		}
+		else if (year % 4 != 0 && (day < 1 || day > 28))
+		{
+			std::cout << "Error: bad input => " << input << std::endl;
+			return (false);
+		}
 	}
 	return (true);
 }
