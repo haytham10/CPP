@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 08:48:29 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/24 10:58:03 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:33:03 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,8 @@ void fordJohnsonMerge(std::deque<int>& sequence, std::size_t left, std::size_t c
     std::size_t n1 = center - left + 1;
     std::size_t n2 = right - center;
 
-    std::vector<int> L(n1);
-    std::vector<int> R(n2);
+    std::deque<int> L(n1);
+    std::deque<int> R(n2);
 
     for (std::size_t i = 0; i < n1; ++i)
         L[i] = sequence[left + i];

@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 23:03:54 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/08 23:03:54 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:24:38 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int	BitcoinExchange::loadDb()
 	int i = 0;
 
 	if (!file.is_open())
+	{
+		std::cerr << "Error: could not open file." << std::endl;
 		return (-1);
+	}
 
 	std::getline(file, line);
 	while (std::getline(file, line))
@@ -74,9 +77,9 @@ bool check_date(std::string &date, std::string &input)
 	std::string monthString = date.substr(5, 2);
 	std::string dayString = date.substr(8, 2);
 
-	int year = std::atoi(yearString.c_str());
-	int month = std::atoi(monthString.c_str());
-	int day = std::atoi(dayString.c_str());
+	int year = std::stoi(yearString);
+	int month = std::stoi(monthString);
+	int day = std::stoi(dayString);
 
 	if (year < 2009 || year > 2023)
 	{

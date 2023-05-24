@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 06:07:32 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 08:32:01 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:38:07 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ double evaluateRPNExpression(const std::string& expression) {
 	{
         if (token.size() == 1 && std::isdigit(token[0]))
 		{
-            double operand = std::atof(token.c_str());
+            double operand = std::stof(token);
             operands.push(operand);
         }
 		else if (isOperator(token))
