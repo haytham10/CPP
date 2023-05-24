@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 06:07:21 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 06:07:21 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 09:56:46 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #include <cstdlib>
 #include <cmath>
 
-bool isOperator(const std::string& token);
-double applyOperator(const std::string& op, double operand1, double operand2);
-double evaluateRPNExpression(const std::string& expression);
+bool	isOperator(const std::string& token);
+double	applyOperator(const std::string& op, double operand1, double operand2);
+double	evaluateRPNExpression(const std::string& expression);
 
 #endif

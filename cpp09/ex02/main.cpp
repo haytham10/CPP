@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 08:35:04 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 09:38:08 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:55:43 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,34 +33,33 @@ int main(int argc, char* argv[])
 			}
 			sequence.push_back(num);
 		}
-		catch (...)
+		catch (...) 
 		{
 			std::cerr << "Error: Invalid input." << std::endl;
 			return 1;
 		}
 	}
 
-    std::vector<int> sequence1 = sequence;
     std::deque<int> sequence2(sequence.begin(), sequence.end());
 
     displaySequence("Before: ", sequence);
 
     // Sort using vector-based merge-insertion sort
     std::clock_t start = std::clock();
-    fordJohnsonMergeInsertSort(sequence1);
+    fordJohnsonMergeInsertSort(sequence);
     std::clock_t end = std::clock();
-    double time1 = (end - start) / (double)CLOCKS_PER_SEC;
+    double time1 = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000);
 
-    displaySequence("After: ", sequence1);
-    std::cout << "Time to process a range of " << sequence1.size() << " elements with vector-based merge-insertion sort: " << time1 << " seconds" << std::endl;
+    displaySequence("After: ", sequence);
+    std::cout << "Time to process a range of " << sequence.size() << " elements with vector-based merge-insertion sort: " << time1 << " us" << std::endl;
 
     // Sort using deque-based merge sort
     start = std::clock();
     fordJohnsonMergeInsertSort(sequence2);
     end = std::clock();
-    double time2 = (end - start) / (double)CLOCKS_PER_SEC;
+	double time2 = static_cast<double>(end - start) / (CLOCKS_PER_SEC / 1000000);
 	
-    std::cout << "Time to process a range of " << sequence2.size() << " elements with deque-based merge sort: " << time2 << " seconds" << std::endl;
+    std::cout << "Time to process a range of " << sequence2.size() << " elements with deque-based merge-insertion sort: " << time2 << " us" << std::endl;
 
     return 0;
 }

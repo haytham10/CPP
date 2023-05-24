@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 08:35:06 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 09:23:02 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:45:13 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <deque>
 #include <algorithm>

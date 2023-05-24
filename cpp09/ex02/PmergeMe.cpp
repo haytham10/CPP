@@ -6,7 +6,7 @@
 /*   By: hmokhtar <hmokhtar@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 08:48:29 by hmokhtar          #+#    #+#             */
-/*   Updated: 2023/05/22 09:38:59 by hmokhtar         ###   ########.fr       */
+/*   Updated: 2023/05/24 10:58:03 by hmokhtar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,54 @@ void displaySequence(const std::string& message, const std::deque<int>& sequence
 }
 
 void fordJohnsonMerge(std::vector<int>& sequence, std::size_t left, std::size_t center, std::size_t right)
+{
+    std::size_t n1 = center - left + 1;
+    std::size_t n2 = right - center;
+
+    std::vector<int> L(n1);
+    std::vector<int> R(n2);
+
+    for (std::size_t i = 0; i < n1; ++i)
+        L[i] = sequence[left + i];
+    for (std::size_t j = 0; j < n2; ++j)
+        R[j] = sequence[center + 1 + j];
+
+    std::size_t i = 0;
+    std::size_t j = 0;
+    std::size_t k = left;
+
+    while (i < n1 && j < n2)
+	{
+        if (L[i] <= R[j])
+		{
+            sequence[k] =  L[i];
+            ++i;
+        }
+		else
+		{
+            sequence[k] = R[j];
+            ++j;
+        }
+        ++k;
+    }
+
+    while (i < n1)
+	{
+        sequence[k] = L[i];
+        ++i;
+        ++k;
+    }
+
+    while (j < n2)
+	{
+        sequence[k] = R[j];
+        ++j;
+        ++k;
+    }
+}
+
+
+void fordJohnsonMerge(std::deque<int>& sequence, std::size_t left, std::size_t center, std::size_t right)
 {
     std::size_t n1 = center - left + 1;
     std::size_t n2 = right - center;
@@ -75,6 +123,7 @@ void fordJohnsonMerge(std::vector<int>& sequence, std::size_t left, std::size_t 
     }
 }
 
+
 void fordJohnsonMergeInsertSort(std::vector<int>& sequence, std::size_t left, std::size_t right)
 {
     if (left < right)
@@ -86,14 +135,23 @@ void fordJohnsonMergeInsertSort(std::vector<int>& sequence, std::size_t left, st
     }
 }
 
+void	fordJohnsonMergeInsertSort(std::deque<int>& sequence, std::size_t left, std::size_t right)
+{
+	if (left < right)
+	{
+		std::size_t center = (left + right) / 2;
+		fordJohnsonMergeInsertSort(sequence, left, center);
+		fordJohnsonMergeInsertSort(sequence, center + 1, right);
+		fordJohnsonMerge(sequence, left, center, right);
+	}
+}
+
 void fordJohnsonMergeInsertSort(std::vector<int>& sequence)
 {
     fordJohnsonMergeInsertSort(sequence, 0, sequence.size() - 1);
 }
 
-void fordJohnsonMergeInsertSort(std::deque<int>& sequence)
+void fordJohnsonMergeInsertSort(std::deque<int>& sequence2)
 {
-    std::vector<int> temp(sequence.begin(), sequence.end());
-    fordJohnsonMergeInsertSort(temp);
-    std::copy(temp.begin(), temp.end(), sequence.begin());
+	fordJohnsonMergeInsertSort(sequence2, 0, sequence2.size() - 1);
 }
